@@ -17,4 +17,6 @@ public class MainModel {
     private Double temperature;
     @JsonProperty("feels_like")
     private Double feelsLike;
+    @JsonProperty("humidity")
+    private Integer humidity;
 }

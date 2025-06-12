@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="500.0"
+            xmlns="http://javafx.com/javafx/22"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="edp.wat.edu.pl.projectkb.controller.LoginViewController">
+
+    <children>
+        <VBox alignment="CENTER" spacing="15.0" layoutX="100.0" layoutY="70.0" prefWidth="300.0">
+            <Label text="Wpisz username:" styleClass="form-label"/>
+            <TextField fx:id="usernameField" promptText="Username" styleClass="input-field"/>
+
+            <Label text="Wpisz hasło:" styleClass="form-label"/>
+            <PasswordField fx:id="passwordField" promptText="Password" styleClass="input-field"/>
+
+            <Button text="Zaloguj" onAction="#login" styleClass="main-button"/>
+
+            <Label text="Nie masz konta?" styleClass="info-label"/>
+            <Button text="Zarejestruj się" onAction="#goToRegister" styleClass="secondary-button"/>
+        </VBox>
+    </children>
+</AnchorPane>

@@ -23,4 +23,16 @@ public class WeatherForecastResponse {
 
     @JsonProperty("weather")
     private List<WeatherObject> list;
+
+    @JsonProperty("dt_txt")
+    private String dateText;
+
+    @JsonProperty("wind")
+    private WindModel wind;
+
+    @JsonProperty("sys")
+    private SysModel sys;
+
+    @JsonProperty("rain")
+    private RainModel rain;
 }

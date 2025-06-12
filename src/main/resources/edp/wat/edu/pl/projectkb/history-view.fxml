@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="edp.wat.edu.pl.projectkb.controller.WeatherHistoryController"
+            prefWidth="600.0" prefHeight="500.0"
+            xmlns="http://javafx.com/javafx/22">
+    <children>
+        <VBox spacing="20.0" alignment="TOP_CENTER" prefWidth="600.0" prefHeight="500.0" styleClass="main-container">
+            <padding>
+                <Insets top="20" left="20" right="20" bottom="20"/>
+            </padding>
+
+            <Label text="Historia zapisanych prognoz" styleClass="section-title" />
+
+            <ListView fx:id="historyListView" prefHeight="330.0" styleClass="history-list" />
+
+            <HBox spacing="20" alignment="CENTER">
+                <Button text="Zobacz szczegóły" onAction="#viewDetails" styleClass="main-button" />
+                <Button text="Usuń" onAction="#deleteHistory" styleClass="logout-button" />
+                <Button text="Wróć" onAction="#goBack" styleClass="main-button" />
+            </HBox>
+        </VBox>
+    </children>
+</AnchorPane>

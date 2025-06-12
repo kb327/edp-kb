@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="edp.wat.edu.pl.projectkb.controller.DailyWeatherController"
+            xmlns="http://javafx.com/javafx/22"
+            prefWidth="900.0" prefHeight="600.0">
+
+    <children>
+
+        <!-- ScrollPane z listą godzinową -->
+        <ScrollPane layoutX="50.0" layoutY="30.0" prefWidth="800.0" prefHeight="470.0"
+                    fitToWidth="true" styleClass="hourly-scroll">
+            <content>
+                <VBox fx:id="hourlyVBox" spacing="15.0" styleClass="hourly-box">
+                    <padding>
+                        <Insets top="15" right="15" bottom="15" left="15"/>
+                    </padding>
+                </VBox>
+            </content>
+        </ScrollPane>
+
+        <!-- Przycisk Zapisz pogodę -->
+        <Button layoutX="300.0" layoutY="520.0" text="Zapisz pogodę"
+                onAction="#saveWeatherHistory" styleClass="main-button"/>
+
+        <!-- Przycisk Wróć -->
+        <Button layoutX="450.0" layoutY="520.0" text="Wróć"
+                onMouseClicked="#goBack" styleClass="main-button"/>
+    </children>
+</AnchorPane>
+

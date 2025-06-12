@@ -1,13 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
 
+<AnchorPane xmlns="http://javafx.com/javafx/22"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="edp.wat.edu.pl.projectkb.controller.WeatherViewController"
+            prefWidth="1200.0" prefHeight="700.0">
 
-<AnchorPane prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/22" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edp.wat.edu.pl.projectkb.controller.WeatherViewController">
    <children>
-      <VBox fx:id="vBoxId" layoutX="17.0" layoutY="63.0" prefHeight="200.0" prefWidth="862.0" />
-      <Button fx:id="showButton" layoutX="396.0" layoutY="298.0" mnemonicParsing="false" onMouseClicked="#showWeather" text="Wyświetl pogodę" />
+
+      <!-- Górna sekcja (pasek wyszukiwania) -->
+      <HBox spacing="10.0" layoutX="20.0" layoutY="20.0">
+         <TextField fx:id="cityField" promptText="Podaj miasto" styleClass="search-field" />
+         <Button fx:id="searchButton" text="Szukaj miast" onMouseClicked="#searchCities" styleClass="main-button" />
+         <ComboBox fx:id="locationComboBox" prefWidth="250.0" styleClass="combo-box" />
+         <Button fx:id="showButton" text="Wyświetl pogodę" onMouseClicked="#showWeather" styleClass="main-button" />
+         <Button fx:id="historyButton" text="Zobacz historię" onMouseClicked="#openHistory" styleClass="main-button" />
+         <Button fx:id="logoutButton" text="Wyloguj" onMouseClicked="#logout" styleClass="logout-button" />
+      </HBox>
+
+      <!-- ScrollPane z całą zawartością -->
+      <ScrollPane layoutX="20.0" layoutY="70.0" prefWidth="1160.0" prefHeight="600.0" fitToWidth="true">
+         <content>
+            <VBox fx:id="mainVBox" spacing="25.0">
+               <padding>
+                  <Insets top="10" right="10" bottom="10" left="10"/>
+               </padding>
+
+               <!-- Sekcja: Twoja prognoza -->
+               <VBox spacing="10.0" styleClass="section-box">
+                  <Label text="Twoja prognoza" styleClass="section-title" />
+                  <Label fx:id="emptyInfoLabel"
+                         text="Wyszukaj lokalizację lub wybierz z ulubionych."
+                         styleClass="empty-info"
+                         visible="true" />
+                  <VBox fx:id="vBoxId" spacing="15.0" />
+               </VBox>
+
+               <!-- Sekcja: Ulubione lokalizacje -->
+               <VBox spacing="10.0" styleClass="section-box">
+                  <Label text="Twoje ulubione lokalizacje:" styleClass="section-title" />
+                  <HBox spacing="10.0">
+                     <TextField fx:id="favoriteCityField" promptText="Podaj miasto" styleClass="search-field" />
+                     <Button fx:id="searchFavoritesButton" text="Szukaj" onMouseClicked="#searchFavorites" styleClass="main-button" />
+                     <ComboBox fx:id="favoriteLocationComboBox" prefWidth="250.0" styleClass="combo-box" />
+                     <Button fx:id="addFavoriteButton" text="Dodaj do ulubionych" onMouseClicked="#addFavorite" styleClass="main-button" />
+                  </HBox>
+                  <VBox fx:id="favoritesVBox" spacing="10.0" />
+               </VBox>
+
+            </VBox>
+         </content>
+      </ScrollPane>
    </children>
 </AnchorPane>

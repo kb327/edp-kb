@@ -13,5 +13,6 @@ public class SessionContext {
 
     public static void clear(){
         loggedInUserId = null;
+        loggedInUserEmail = null;
     }
 }

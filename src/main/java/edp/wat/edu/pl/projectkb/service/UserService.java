@@ -41,4 +41,25 @@ public class UserService {
         }
         return false;
     }
+
+    public boolean login(String username, String password) {
+        EntityManager em = DbPersistenceUnit.getEntityManager();
+
+        try {
+            User user = em.createQuery("SELECT u FROM User u WHERE u.username = :username", User.class)
+                    .setParameter("username", username)
+                    .getSingleResult();
+
+            if (user != null && BCrypt.checkpw(password, user.getPasswordHash())) {
+                SessionContext.setLoggedInUserId(user.getUserId());
+                SessionContext.setLoggedInUserEmail(user.getEmail());
+                return true;
+            }
+        } catch (NoResultException e) {
+            return false;
+        } finally {
+            em.close();
+        }
+        return false;
+    }
 }

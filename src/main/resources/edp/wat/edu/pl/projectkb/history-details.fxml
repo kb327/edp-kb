@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="edp.wat.edu.pl.projectkb.controller.WeatherHistoryDetailsController"
+            prefWidth="600.0" prefHeight="500.0"
+            xmlns="http://javafx.com/javafx/22">
+    <children>
+        <VBox spacing="15.0" alignment="TOP_CENTER"
+              AnchorPane.topAnchor="20" AnchorPane.leftAnchor="20"
+              AnchorPane.rightAnchor="20" AnchorPane.bottomAnchor="20"
+              styleClass="main-container">
+
+            <Label fx:id="locationLabel" styleClass="section-title"/>
+            <Label fx:id="dateLabel" styleClass="section-subtitle"/>
+
+            <TextArea fx:id="weatherDataArea"
+                      editable="false"
+                      wrapText="true"
+                      prefHeight="350.0"
+                      styleClass="data-area"/>
+
+            <Button text="Wróć" onAction="#goBack" styleClass="main-button" />
+        </VBox>
+    </children>
+</AnchorPane>
